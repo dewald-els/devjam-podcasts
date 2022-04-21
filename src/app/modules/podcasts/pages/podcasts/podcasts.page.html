@@ -1,0 +1,39 @@
+<div class="bg-slate-100 min-h-[100vh]">
+  <div class="container mx-auto p-8">
+    <header class="mb-4">
+      <p class="uppercase text-gray-400">Find your interest</p>
+      <h1 class="text-4xl font-medium text-gray-600">Podcast</h1>
+
+    </header>
+    <p *ngIf="loading">Loading podcast...</p>
+    <p *ngIf="error">{{error}}</p>
+
+
+    <section *ngIf="podcast">
+      <header class="mb-4 md:flex">
+        <aside class="mr-4 min-w-[125px] md:min-w-[200px]">
+          <img [src]="podcast.image" alt="" width="200" class="rounded-lg" />
+        </aside>
+        <div>
+          <span class="text-4xl font-medium text-gray-700">{{ podcast.title }}</span>
+          <p>{{ podcast.description }}</p>
+        </div>
+      </header>
+
+      <h4 class="font-medium text-xl">Episodes</h4>
+      <ul>
+        <li *ngFor="let episode of podcast.episodes" class="border-b border-gray-300 p-4 flex items-center">
+          <button class="w-12 h-12 rounded-full bg-amber-500 text-gray-800 border border-gray-600 mr-6"
+                  (click)="playEpisode(episode)">
+            <span class="material-icons text-2xl" *ngIf="!episode.is_playing">play_arrow</span>
+            <span class="material-icons text-2xl" *ngIf="episode.is_playing">pause</span>
+          </button>
+          <div class="flex justify-between w-full">
+            <span>{{episode.title}}</span>
+            <span>{{episode.audio_length_sec | duration }}min</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<ul class="flex flex-wrap">
+  <li *ngFor="let genre of genres; let i = index"
+      class="mr-4 min-h-[150px] w-44 p-4 bg-purple-500 text-white rounded-lg mb-4 flex">
+    <a routerLink="/genres/{{genre.id}}" class="flex flex-col self-stretch justify-between text-xl w-full">
+      <span class="material-icons">category</span>
+      <span>{{genre.name}}</span>
+    </a>
+  </li>
+</ul>

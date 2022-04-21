@@ -1,0 +1,39 @@
+<div class="bg-slate-100 min-h-[100vh]">
+
+  <header class="mb-4 sticky top-0 py-8 bg-slate-100 ">
+    <div class="container mx-auto px-8">
+      <p class="uppercase text-gray-400">Find what you need</p>
+      <h1 class="text-4xl font-medium text-gray-600 mb-4">Search for podcasts</h1>
+
+      <section id="search-form" class="mb-8">
+        <form #searchForm="ngForm">
+          <fieldset>
+            <legend class="sr-only">Search for podcasts</legend>
+            <div>
+              <label class="sr-only" for="search">Search for podcasts</label>
+              <input type="search" id="search"
+                     placeholder="Search for podcasts..."
+                     class="w-full rounded-xl p-4 font-medium"
+                     #searchInput
+                     (input)="search(searchInput.value.trim())" />
+            </div>
+          </fieldset>
+        </form>
+      </section>
+    </div>
+  </header>
+
+  <div class="container mx-auto px-8 pb-12">
+
+    <section *ngIf="loading">
+      <p>Searching...</p>
+    </section>
+
+    <section id="search-results" *ngIf="podcasts$ | async as podcasts">
+      <h4 class="text-xl font-medium mb-4">Search results ({{searchResultCount}})</h4>
+
+      <app-search-result-list [podcasts]="podcasts"></app-search-result-list>
+
+    </section>
+  </div>
+</div>

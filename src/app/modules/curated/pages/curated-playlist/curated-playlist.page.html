@@ -1,0 +1,24 @@
+<div class="bg-slate-100 min-h-[100vh]">
+  <div class="container mx-auto p-8">
+    <header class="mb-8">
+      <h1 class="text-4xl font-medium text-gray-600">
+        <a class="mr-4" routerLink="/curated">
+          <span class="material-icons">arrow_back</span>
+        </a>
+        <span>Curated Podcast Playlist</span>
+      </h1>
+    </header>
+    <section id="curated-podcasts">
+      <ul *ngIf="curatedPodcasts" class="grid grid-cols-[repeat(auto-fit,_minmax(260px,_1fr))] gap-8">
+        <li *ngFor="let podcast of curatedPodcasts.podcasts" class="bg-white rounded-lg shadow-lg overflow-hidden">
+          <figure>
+            <img [src]="podcast.thumbnail" class="w-full block"/>
+          </figure>
+          <div class="p-4">
+            <span class="font-medium">{{ podcast.title }}</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>

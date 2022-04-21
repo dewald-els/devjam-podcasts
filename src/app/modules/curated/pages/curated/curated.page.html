@@ -1,0 +1,31 @@
+<div class="bg-slate-100 min-h-[100vh]">
+  <div class="container mx-auto p-8">
+    <header class="mb-8">
+      <p class="uppercase text-gray-400">What we like</p>
+      <h1 class="text-4xl font-medium text-gray-600">Curated Podcasts</h1>
+    </header>
+    <section id="curated-podcasts">
+      <ul>
+        <li *ngFor="let playlist of curated" class="bg-white rounded-lg mb-8 overflow-hidden shadow-lg">
+          <header class="p-4">
+            <a routerLink="/curated/{{playlist.id}}" class="font-medium block text-xl">{{playlist.title}}</a>
+            <span class="text-gray-400">{{playlist.description}}</span>
+          </header>
+          <ul class="flex">
+            <li *ngFor="let podcast of playlist.podcasts" class="relative">
+              <a routerLink="/podcasts/{{podcast.id}}"
+                 class="bg-gray-800 opacity-0 hover:opacity-90 w-full h-full absolute top-0 left-0 z-10 flex justify-center items-center text-white text-center p-4 cursor-pointer">
+                <div>
+                  <span class="block font-semibold text-xl">{{podcast.title}}</span>
+                  <span>{{podcast.publisher}}</span>
+                </div>
+              </a>
+              <img [src]="podcast.thumbnail" alt="">
+
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="bg-slate-100 min-h-[100vh]">
+  <div class="container mx-auto p-8">
+    <header class="mb-4">
+      <p class="uppercase text-gray-400">Find your interest</p>
+      <h1 class="text-4xl font-medium text-gray-600">Genres ({{genres.length}})</h1>
+    </header>
+    <p *ngIf="loading">Loading genres...</p>
+    <p *ngIf="error">{{error}}</p>
+    <app-genre-list [genres]="genres"></app-genre-list>
+  </div>
+</div>
