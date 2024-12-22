@@ -40,7 +40,7 @@ jobs:
       - name: Setup .env and secrets
         run: |
           touch .env
-          echo LISTEN_NOTES_API_KEY=${{ secrets.LISTEN_NOTES_API_KEY }} >> build/.env
+          echo LISTEN_NOTES_API_KEY=${{ secrets.LISTEN_NOTES_API_KEY }} >> .env
           cat .env
 
       - name: Deploy to Azure
