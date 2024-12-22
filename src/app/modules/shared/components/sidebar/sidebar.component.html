@@ -1,42 +1,43 @@
-<div class="h-full fixed left-0 top-0">
-  <header class="p-4">
-    <p class="flex items-center text-2xl font-semibold">
-      <span class="material-icons mr-2">podcasts</span>
-      <span class="text-yellow-400">DevJam Podcasts</span>
-    </p>
-    <span class="text-slate-500">Powered by ListenNotes</span>
-  </header>
-  <section class="p-4">
-    <ul class="text-gray-500 font-medium text-lg">
+<div class="top-0 w-full right-0 z-[999] md:top-0 bg-white md:h-full md:left-0">
+	<header class="p-4">
+		<p class="flex items-center text-2xl font-semibold">
+			<span class="material-icons mr-2">podcasts</span>
+			<span class="text-yellow-400">DevJam Podcasts</span>
+		</p>
+		<span class="text-slate-500"
+			>Powered by
+			<a class="underline" href="https://www.listennotes.com/" target="_blank">ListenNotes</a>
+		</span>
+	</header>
+	<section class="p-4">
+		<ul class="text-gray-500 font-medium text-lg">
+			<li class="p-4 hover:bg-gray-200 rounded-lg mb-4" [class.active]="path === '/curated'">
+				<a routerLink="/curated" class="flex">
+					<span class="material-icons mr-4">home</span>
+					<span>Home</span>
+				</a>
+			</li>
 
-      <li class="p-4 hover:bg-gray-200 rounded-lg mb-4" [class.active]="path === '/curated'">
-        <a routerLink="/curated" class="flex">
-          <span class="material-icons mr-4">home</span>
-          <span>Home</span>
-        </a>
-      </li>
+			<li class="bg-slate-100 rounded-full h-0.5 mb-4"></li>
 
-      <li class="bg-slate-100 rounded-full h-0.5 mb-4"></li>
-
-      <li class="p-4 hover:bg-gray-200 rounded-lg mb-4" [class.active]="path === '/search'">
-        <a routerLink="/search" class="flex">
-          <span class="material-icons mr-4">search</span>
-          <span>Search</span>
-        </a>
-      </li>
-      <li class="p-4 hover:bg-gray-200 rounded-lg mb-4" [class.active]="path === '/recent'">
-        <a routerLink="/recent" class="flex">
-          <span class="material-icons mr-4">trending_up</span>
-          <span>Recent</span>
-        </a>
-      </li>
-      <li class="p-4 hover:bg-gray-200 rounded-lg mb-4" [class.active]="path === '/genres'">
-        <a routerLink="/genres" class="flex">
-          <span class="material-icons mr-4">category</span>
-          <span>Genres</span>
-        </a>
-      </li>
-    </ul>
-  </section>
+			<li class="p-4 hover:bg-gray-200 rounded-lg mb-4" [class.active]="path === '/search'">
+				<a routerLink="/search" class="flex">
+					<span class="material-icons mr-4">search</span>
+					<span>Search</span>
+				</a>
+			</li>
+			<li class="p-4 hover:bg-gray-200 rounded-lg mb-4" [class.active]="path === '/recent'">
+				<a routerLink="/recent" class="flex">
+					<span class="material-icons mr-4">trending_up</span>
+					<span>Trending</span>
+				</a>
+			</li>
+			<li class="p-4 hover:bg-gray-200 rounded-lg mb-4" [class.active]="path === '/genres'">
+				<a routerLink="/genres" class="flex">
+					<span class="material-icons mr-4">category</span>
+					<span>Genres</span>
+				</a>
+			</li>
+		</ul>
+	</section>
 </div>
-

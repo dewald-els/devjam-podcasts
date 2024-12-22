@@ -18,6 +18,7 @@ export class PodcastsPage implements OnInit {
 
   public currentlyPlaying: Episode | null = null;
   public audio: HTMLAudioElement | null = null;
+  public loadingTrack: boolean = false;
 
   constructor(private route: ActivatedRoute, private podcastService: PodcastsService) {
   }
@@ -58,6 +59,7 @@ export class PodcastsPage implements OnInit {
     }
 
     try {
+      this.loadingTrack = true;
       this.audio = new Audio(episode.audio);
       this.audio.addEventListener("playing", () => {
         episode.is_playing = true;
@@ -66,6 +68,8 @@ export class PodcastsPage implements OnInit {
       await this.audio.play();
     } catch (error) {
       console.log(error);
+    } finally {
+      this.loadingTrack = false;
     }
   }
 

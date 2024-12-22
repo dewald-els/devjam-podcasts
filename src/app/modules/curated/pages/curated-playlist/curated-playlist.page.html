@@ -9,8 +9,10 @@
       </h1>
     </header>
     <section id="curated-podcasts">
-      <ul *ngIf="curatedPodcasts" class="grid grid-cols-[repeat(auto-fit,_minmax(260px,_1fr))] gap-8">
-        <li *ngFor="let podcast of curatedPodcasts.podcasts" class="bg-white rounded-lg shadow-lg overflow-hidden">
+      <ul *ngIf="curatedPodcasts" 
+      class="grid grid-cols-[repeat(auto-fit,_minmax(260px,_1fr))] gap-8">
+        <li (click)="goToPodcast(podcast.id)" *ngFor="let podcast of curatedPodcasts.podcasts" 
+        class="bg-white rounded-lg shadow-lg overflow-hidden hover:cursor-pointer hover:shadow-xl active:shadow-sm">
           <figure>
             <img [src]="podcast.thumbnail" class="w-full block"/>
           </figure>

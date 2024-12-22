@@ -23,10 +23,15 @@
       <h4 class="font-medium text-xl">Episodes</h4>
       <ul>
         <li *ngFor="let episode of podcast.episodes" class="border-b border-gray-300 p-4 flex items-center">
-          <button class="w-12 h-12 rounded-full bg-amber-500 text-gray-800 border border-gray-600 mr-6"
-                  (click)="playEpisode(episode)">
-            <span class="material-icons text-2xl" *ngIf="!episode.is_playing">play_arrow</span>
-            <span class="material-icons text-2xl" *ngIf="episode.is_playing">pause</span>
+          <button class="w-12 h-12 rounded-full bg-amber-500 text-gray-800 border border-gray-600 mr-6 disabled:bg-amber-800 disabled:text-white"
+                  (click)="playEpisode(episode)"
+                  [disabled]="loadingTrack">
+
+              <span class="text-2xl" *ngIf="loadingTrack">...</span>
+              <span *ngIf="!loadingTrack">
+                <span class="material-icons text-2xl" *ngIf="!episode.is_playing">play_arrow</span>
+                <span class="material-icons text-2xl" *ngIf="episode.is_playing">pause</span>
+              </span>
           </button>
           <div class="flex justify-between w-full">
             <span>{{episode.title}}</span>

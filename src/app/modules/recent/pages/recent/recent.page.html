@@ -1,12 +1,17 @@
 <div class="bg-slate-100 min-h-[100vh]">
   <div class="container mx-auto p-8">
     <header class="mb-8">
-      <p class="uppercase text-gray-400">Fresh off the press</p>
-      <h1 class="text-4xl font-medium text-gray-600">Recent Podcasts</h1>
+      <p class="uppercase text-gray-400">Most searched terms</p>
+      <h1 class="text-4xl font-medium text-gray-600">Trending Searches</h1>
     </header>
-    <section id="curated-podcasts">
-      <ul>
-
+    <section id="trending-searches">
+      <ul class="bg-white rounded-md border border-slate-200">
+        <li *ngFor="let term of trending_searches" class="p-4 border-b border-slate-200 last:border-0 flex justify-between">
+          <span>{{ term }}</span>
+          <button 
+            (click)="searchByRecentTerm(term)"
+            class="border border-slate-200 text-xs rounded-md p-2 hover:bg-slate-200 active:bg-slate-300">Search</button>
+        </li>
       </ul>
     </section>
   </div>

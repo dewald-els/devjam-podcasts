@@ -1,14 +1,16 @@
 <ul>
-  <li *ngFor="let podcast of podcasts" class="bg-white rounded-lg mb-4 shadow-md">
-    <a routerLink="/podcasts/{{podcast.podcast.id}}" class="p-4 flex">
-      <aside class="mr-4 min-w-[65px]">
-        <img [src]="podcast.thumbnail" alt="Podcast Thumbnail for {{podcast.title_original}}"
-             class="w-16 rounded-lg" />
-      </aside>
-      <div class="flex flex-col">
-        <span class="text-lg">{{ podcast.title_original }}</span>
-        <span>{{podcast.description_original | foldText: 80}}</span>
-      </div>
-    </a>
-  </li>
+	<li *ngFor="let podcast of podcasts" class="bg-white rounded-lg mb-4 shadow-md">
+		<a routerLink="/podcasts/{{ podcast.podcast.id }}" class="p-4 flex">
+			<aside class="mr-4 min-w-[65px]">
+				<img
+					[src]="podcast.thumbnail"
+					alt="Podcast Thumbnail for {{ podcast.title_original }}"
+					class="w-16 rounded-lg" />
+			</aside>
+			<div class="flex flex-col overflow-hidden">
+				<span class="text-lg">{{ podcast.title_original }}</span>
+				<span [innerHTML]="podcast.description_original | foldText : 80"></span>
+			</div>
+		</a>
+	</li>
 </ul>

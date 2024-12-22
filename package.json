@@ -20,7 +20,7 @@
     "@angular/platform-browser": "~13.3.0",
     "@angular/platform-browser-dynamic": "~13.3.0",
     "@angular/router": "~13.3.0",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.4.7",
     "express": "^4.17.3",
     "podcast-api": "^1.1.1",
     "rxjs": "~7.5.0",

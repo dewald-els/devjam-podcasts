@@ -15,6 +15,7 @@
                      placeholder="Search for podcasts..."
                      class="w-full rounded-xl p-4 font-medium"
                      #searchInput
+                     [value]="searchQuery"
                      (input)="search(searchInput.value.trim())" />
             </div>
           </fieldset>
