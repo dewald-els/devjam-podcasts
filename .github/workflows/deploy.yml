@@ -2,7 +2,7 @@ name: Build and deploy
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   AZURE_WEBAPP_NAME: portfolio-devjam-podcasts
@@ -37,6 +37,13 @@ jobs:
           npm run build --if-present
           npm run test --if-present
         working-directory: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+
+      - name: Setup .env and secrets
+        run: |
+          touch build/.env
+          echo LISTEN_NOTES_API_KEY=${{ secrets.LISTEN_NOTES_API_KEY }} >> build/.env
+          cat build/.env
+
       - name: Deploy to Azure
         uses: azure/webapps-deploy@v3
         with:
